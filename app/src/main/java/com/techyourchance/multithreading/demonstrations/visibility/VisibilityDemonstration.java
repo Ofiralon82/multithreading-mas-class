@@ -7,7 +7,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 //the problem here: the sCount is not visible between threads. consumer doesnt see the changes there.
 //this is because sCount is cached locally and not reading it from memory
 //this is a problem of multiple threads share the same state
-//the fix here is to add the 'volatile' word to the sCount
+//the fix here is to add the 'volatile' word to the sCount so it will be located in the main memory
+//volatile - only concern with visibility (not autonomy)
 public class VisibilityDemonstration {
 
     private static int sCount = 0;

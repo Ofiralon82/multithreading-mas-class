@@ -98,10 +98,12 @@ public class AtomicityDemonstrationFragment extends BaseFragment {
                     //mCount = localCount + 1;
                     //so new we understand why the result doesn't always show to us 100,000
                     //some of the thread stop in int localCount = mCount; and switch to another thread
-                    //read, modify, write
+                    //read, modify, write - all as one atomic operation
                     //and that's why we lose a lot of the counting
                     //we need it to be AtomicInteger
-                    //it's all RACE CONDITION
+                    //it's all RACE CONDITION. we want sCount to be THREAD SAFE
+                    //note that now we are getting after say 100 times the same value - 100,000
+                    //but even so, we didn't prove that it's work. we need to PR and analyze the code. its the only way
                 }
             }
         }).start();
