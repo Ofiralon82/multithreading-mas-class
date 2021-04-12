@@ -92,6 +92,16 @@ public class AtomicityDemonstrationFragment extends BaseFragment {
             public void run() {
                 for (int i = 0; i < COUNT_UP_TO; i++) {
                     mCount++;
+
+                    //here above: mCount++ is semantically equals to:
+                    //int localCount = mCount;
+                    //mCount = localCount + 1;
+                    //so new we understand why the result doesn't always show to us 100,000
+                    //some of the thread stop in int localCount = mCount; and switch to another thread
+                    //read, modify, write
+                    //and that's why we lose a lot of the counting
+                    //we need it to be AtomicInteger
+                    //it's all RACE CONDITION
                 }
             }
         }).start();
