@@ -1,5 +1,5 @@
 package com.techyourchance.multithreading.demonstrations.visibility;
-
+//problems of threads: visibility, autonomy, happens before
 public class VisibilityDemonstration {
 
     private static int sCount = 0;
