@@ -18,6 +18,7 @@ import com.techyourchance.multithreading.common.dependencyinjection.Presentation
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
+//https://theculturetrip.udemy.com/course/android-multithreading/learn/lecture/16275416#overview
 public class MainActivity extends AppCompatActivity implements
         FragmentContainerWrapper,
         ToolbarManipulator {
