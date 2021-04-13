@@ -104,6 +104,8 @@ public class AtomicityDemonstrationFragment extends BaseFragment {
                     //it's all RACE CONDITION. we want sCount to be THREAD SAFE
                     //note that now we are getting after say 100 times the same value - 100,000
                     //but even so, we didn't prove that it's work. we need to PR and analyze the code. its the only way
+                    //note: we can leave the volatile (we need it) or remove it and make the sCount final.
+                    //final in Java is thread safe. this is the main use for final - IMMUTABILITY = FINAL
                 }
             }
         }).start();

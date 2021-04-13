@@ -53,6 +53,17 @@ public class VisibilityDemonstration {
                 } catch (InterruptedException e) {
                     return;
                 }
+                //another issue is above: synchronization
+                //if we will remove the sleep, we will see some strange behaviour.
+                //we need to LOCK here the producer and the costumer in order to have a
+                //robust behaviour.
+                //note 1: LOCK should be inside the while loop and the condition should be
+                //inside the while loop as well.
+                //note 2: we don't need the volatile for the sCount any more. the LOCk take
+                //care of that
+                //problems: if one hold the LOCK for a lot of time - issue
+                //problem: if one never release the LOCK - big issue. no one will execute
+                //problem: two LOCKS - DEAD LOCK
             }
             System.out.println("Producer: terminating");
         }
